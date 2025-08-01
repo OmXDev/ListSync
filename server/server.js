@@ -18,8 +18,6 @@ const allowedOrigins = [
   "http://localhost:5173",
 ];
 
-app.use(debugReplay());
-
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
