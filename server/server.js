@@ -16,12 +16,18 @@ dotenv.config();
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   "http://localhost:5173",
-
 ];
 
+app.use(debugReplay());
 
 const corsOptions = {
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -34,6 +40,7 @@ app.use((req, res, next) => {
 app.options(/^\/.*$/, cors(corsOptions), (req, res) => {
   res.sendStatus(204);
 });
+
 
 app.use('/api/auth',authRoutes);
 app.use('/api/agents',agentRoutes)
