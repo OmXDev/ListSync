@@ -22,8 +22,8 @@ export default function Dashboard() {
     const fetchStats = async () => {
         try {
             const [agentsResponse, listsResponse] = await Promise.all([
-                axios.get("http://localhost:5000/api/agents"),
-                axios.get("http://localhost:5000/api/lists"),
+                axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/agents`),
+                axios.get(`${import.meta.env.VITE_BACKEND_URL}/lists`),
             ])
 
             const agents = agentsResponse.data
@@ -118,7 +118,7 @@ export default function Dashboard() {
 useEffect(() => {
   const fetchActivities = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/activities")
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/activities`)
       setActivities(res.data)
     } catch (err) {
       console.error("Failed to fetch activity log:", err)

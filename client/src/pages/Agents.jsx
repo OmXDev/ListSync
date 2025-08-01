@@ -1,8 +1,5 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { apiService } from "../services/api"
 import { Search, Edit, Trash2, Eye, Plus } from "lucide-react"
 import axios from "axios"
 
@@ -15,7 +12,7 @@ export default function Agents() {
   const fetchAgents = async () => {
     setLoading(true)
     try {
-      const response = await axios.get("http://localhost:5000/api/agents")
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/agents `)
       setAgents(response.data)
     } catch (error) {
       console.error("Error fetching agents:", error)

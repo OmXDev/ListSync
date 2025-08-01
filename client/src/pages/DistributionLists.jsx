@@ -1,7 +1,4 @@
-"use client"
-
 import { useState, useEffect } from "react"
-import { apiService } from "../services/api"
 import { Search, FileText, Users, Calendar } from "lucide-react"
 import axios from "axios"
 import { Link } from "react-router-dom"
@@ -17,7 +14,7 @@ export default function DistributionLists() {
 
  const fetchLists = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/api/lists");
+    const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/lists`);
     setLists(response.data);
   } catch (error) {
     console.error("Error fetching distribution lists:", error);

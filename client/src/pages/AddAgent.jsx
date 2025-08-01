@@ -49,7 +49,7 @@ export default function AddAgent() {
         const fullNumber = `${formData.phone.countryCode}${formData.phone.number}`
 
         try {
-            await axios.post("http://localhost:5000/api/agents", {
+            await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/agents`, {
                 ...formData,
                 phone: {
                     ...formData.phone,

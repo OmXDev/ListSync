@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { Eye, EyeOff, Lock, Mail, Shield } from "lucide-react"
@@ -24,7 +22,7 @@ const handleSubmit = async (e) => {
   setError("")
 
   try {
-    const res = await axios.post("http://localhost:5000/api/auth/login", formData)
+    const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, formData)
 
     if (res.data && res.data.success && res.data.data?.token) {
       const token = res.data.data.token

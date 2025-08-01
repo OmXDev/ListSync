@@ -11,7 +11,7 @@ export default function AgentListItems() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/agents/${agentId}/lists`)
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/agents/${agentId}/lists`)
       .then((res) => setItems(res.data))
       .catch((err) => console.error("Error fetching agent's items:", err))
       .finally(() => setLoading(false))

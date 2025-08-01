@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { apiService } from "../services/api"
 import { Upload, FileText, X, CheckCircle, AlertCircle } from "lucide-react"
 import axios from "axios"
 import { useEffect } from "react";
@@ -73,7 +72,7 @@ const [loadingFiles, setLoadingFiles] = useState(true);
     formData.append("file", fileObj.file);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/lists/upload", formData, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/lists/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -111,7 +110,7 @@ const [loadingFiles, setLoadingFiles] = useState(true);
   useEffect(() => {
   const fetchFiles = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/lists");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/lists`);
       setUploadedFiles(res.data);
     } catch (err) {
       console.error("Error fetching uploaded files:", err);

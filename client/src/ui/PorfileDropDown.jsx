@@ -25,7 +25,7 @@ export default function ProfileDropdown() {
   const handleLogout = async () => {
   try {
     await axios.post(
-      "http://localhost:5000/api/auth/logout",
+      `${import.meta.env.VITE_BACKEND_URL}/api/auth/logout`,
       {}, // No body needed
       { withCredentials: true } // Needed if using cookies
     );

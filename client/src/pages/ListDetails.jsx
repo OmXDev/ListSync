@@ -16,7 +16,7 @@ export default function ListDetails() {
  useEffect(() => {
   const fetchListDetails = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/lists/${uploadId}`);
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/lists/${uploadId}`);
       setItems(res.data.rows);     
       setFileInfo(res.data.file);   
     } catch (err) {
