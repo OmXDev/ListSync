@@ -2,7 +2,7 @@
 
 ListSync is a lightweight and efficient web application built using the **MERN stack** that enables admins to upload lists via CSV/XLSX and intelligently distribute them among agents. Whether you're managing call lists, sales leads, or follow-ups — ListSync ensures fair distribution and seamless visibility.
 
-![Portfolio Preview](public/ListSync.png)
+![Portfolio Preview](assets/ListSync.png)
 
 ![React](https://img.shields.io/badge/Frontend-React-blue?style=flat-square)
 ![Tailwind CSS](https://img.shields.io/badge/Styling-TailwindCSS-06B6D4?style=flat-square)
