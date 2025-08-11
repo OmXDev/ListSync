@@ -21,8 +21,8 @@ ListSync is a lightweight and efficient web application built using the **MERN s
 ---
 
 ### Demo Credentials
-Email: demo@example.com  
-Password: demo123  
+Email: admin@example.com  
+Password: admin123  
 
 ---
 
